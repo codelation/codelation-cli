@@ -30,17 +30,10 @@ module Codelation
 
     # Install the Ruby gems needed for development.
     def install_gems
-      print_command("gem install bundler")
-      `~/.codelation/ruby/bin/gem install bundler`
-
-      print_command("gem install codelation-cli")
-      `~/.codelation/ruby/bin/gem install codelation-cli`
-
-      print_command("gem install rubocop")
-      `~/.codelation/ruby/bin/gem install rubocop`
-
-      print_command("gem install scss-lint")
-      `~/.codelation/ruby/bin/gem install scss-lint`
+      %w(bundler codelation-cli dogids-cli rubocop scss-lint).each do |gem|
+        print_command("gem install #{gem}")
+        `~/.codelation/ruby/bin/gem install #{gem}`
+      end
     end
 
     # Install ruby-install from https://github.com/postmodern/ruby-install.
