@@ -4,8 +4,6 @@ Command line tool for Codelation tasks.
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
 ```bash
 $ gem install codelation-cli
 ```
