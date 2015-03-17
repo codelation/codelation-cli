@@ -28,6 +28,7 @@ module Codelation
         linter-ruby
         linter-scss-lint
         linter-shellcheck
+        pretty-json
         remote-atom
       )
       packages.each do |package|
