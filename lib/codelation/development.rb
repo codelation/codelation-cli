@@ -17,23 +17,29 @@ module Codelation
       print_heading("Installing Dependencies")
       install_dependencies
 
-      print_heading("Installing Atom.app")
-      install_atom
+      unless Dir.exist?("/Applications/Atom.app")
+        print_heading("Installing Atom.app")
+        install_atom
 
-      print_heading("Installing Atom Packages")
-      install_atom_packages
+        print_heading("Installing Atom Packages")
+        install_atom_packages
+      end
 
       print_heading("Installing Dot Files")
       install_dot_files
 
-      print_heading("Installing Postgres.app")
-      install_postgres
+      unless Dir.exist?("/Applications/Postgres.app")
+        print_heading("Installing Postgres.app")
+        install_postgres
+      end
 
       print_heading("Installing Ruby")
       install_ruby
 
-      print_heading("Installing Sequel Pro.app")
-      install_sequel_pro
+      unless Dir.exist?("/Applications/Sequel Pro.app")
+        print_heading("Installing Sequel Pro.app")
+        install_sequel_pro
+      end
 
       `source ~/.bash_profile`
     end
