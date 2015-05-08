@@ -30,6 +30,7 @@ module Codelation
         linter-shellcheck
         pretty-json
         remote-atom
+        tabs-to-spaces
       )
       packages.each do |package|
         apm_install(package)
