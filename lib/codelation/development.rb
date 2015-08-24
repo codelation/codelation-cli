@@ -9,6 +9,7 @@ module Codelation
       - Atom Packages: erb-snippets, linter, linter-csslint, linter-erb, linter-jshint,
           linter-php, linter-rubocop, linter-ruby, linter-scss-lint, remote-atom\n
       - Postgres.app (http://postgresapp.com)\n
+      - PSequel.app (http://www.psequel.com)\n
       - Ruby (https://www.ruby-lang.org)\n
       - Ruby Gems: bundler, rubocop, scss-lint\n
       - Sequel Pro.app (http://www.sequelpro.com)
@@ -31,6 +32,11 @@ module Codelation
       unless Dir.exist?("/Applications/Postgres.app")
         print_heading("Installing Postgres.app")
         install_postgres
+      end
+
+      unless Dir.exist?("/Applications/PSequel.app")
+        print_heading("Installing PSequel.app")
+        install_psequel
       end
 
       print_heading("Installing Ruby")
