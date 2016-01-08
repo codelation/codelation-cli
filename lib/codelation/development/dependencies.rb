@@ -15,6 +15,7 @@ module Codelation
 
       run_command("brew install bash")
       run_command("brew install git")
+      run_command("brew install heroku")
       run_command("brew install imagemagick")
       run_command("brew install openssl")
       run_command("brew install shellcheck")
