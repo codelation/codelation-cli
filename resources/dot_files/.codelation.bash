@@ -7,7 +7,6 @@ alias gitclean='git branch --merged | grep -v "\*" | xargs -n 1 git branch -d'
 alias ll="ls -lah"
 alias railsclean="RAILS_ENV=development rake assets:clean; RAILS_ENV=development rake tmp:clear; RAILS_ENV=test rake assets:clean; RAILS_ENV=test rake tmp:clear"
 alias ss="bundle exec rake start"
-alias sshdogids="ssh -R 52698:localhost:52698 -p 22711 root@dogids.com"
 
 # Add Postgres commands from Postgres.app
 PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin

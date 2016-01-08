@@ -18,7 +18,6 @@ module Codelation
     # Install Atom.app Packages
     def install_atom_packages
       packages = %w(
-        erb-snippets
         linter
         linter-csslint
         linter-erb

@@ -21,10 +21,10 @@ module Codelation
       unless Dir.exist?("/Applications/Atom.app")
         print_heading("Installing Atom.app")
         install_atom
-
-        print_heading("Installing Atom Packages")
-        install_atom_packages
       end
+
+      print_heading("Installing Atom Packages")
+      install_atom_packages
 
       print_heading("Installing Dot Files")
       install_dot_files
