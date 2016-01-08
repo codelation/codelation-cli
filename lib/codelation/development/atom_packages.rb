@@ -29,6 +29,7 @@ module Codelation
         linter-scss-lint
         linter-shellcheck
         pretty-json
+        rails-snippets
         remote-atom
       )
       packages.each do |package|
