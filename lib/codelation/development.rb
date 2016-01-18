@@ -48,6 +48,9 @@ module Codelation
       end
 
       `source ~/.bash_profile`
+
+      print_heading("Adding $PATH to Atom Init Script")
+      add_atom_init_script
     end
   end
 end
