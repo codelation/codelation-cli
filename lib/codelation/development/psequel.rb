@@ -2,7 +2,7 @@ require "thor"
 
 module Codelation
   class Cli < Thor
-    PSEQUEL_APP_DOWNLOAD_URL = "http://www.psequel.com/download?version=latest"
+    PSEQUEL_APP_DOWNLOAD_URL = "http://www.psequel.com/download?version=latest".freeze
 
   private
 

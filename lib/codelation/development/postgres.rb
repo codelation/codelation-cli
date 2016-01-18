@@ -2,7 +2,7 @@ require "thor"
 
 module Codelation
   class Cli < Thor
-    POSTGRES_APP_DOWNLOAD_URL = "https://github.com/PostgresApp/PostgresApp/releases/download/9.4.1.0/Postgres-9.4.1.0.zip"
+    POSTGRES_APP_DOWNLOAD_URL = "https://github.com/PostgresApp/PostgresApp/releases/download/9.4.1.0/Postgres-9.4.1.0.zip".freeze
 
   private
 

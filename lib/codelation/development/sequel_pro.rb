@@ -2,7 +2,7 @@ require "thor"
 
 module Codelation
   class Cli < Thor
-    SEQUEL_PRO_APP_DOWNLOAD_URL = "http://codelation-cli.s3.amazonaws.com/sequel-pro-1.0.2.zip"
+    SEQUEL_PRO_APP_DOWNLOAD_URL = "http://codelation-cli.s3.amazonaws.com/sequel-pro-1.0.2.zip".freeze
 
   private
 

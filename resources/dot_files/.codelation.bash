@@ -11,8 +11,14 @@ alias ss="bundle exec rake start"
 # Add Postgres commands from Postgres.app
 PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin
 
-# Add Ruby binary to PATH first, overriding the system Ruby
-PATH=./bin:~/.codelation/ruby/bin:$PATH
+# Add ./bin to make running Rails commands with Spring the default
+PATH=./bin:$PATH
+
+# Include chruby for switching between Ruby versions
+source /usr/local/opt/chruby/share/chruby/chruby.sh
+
+# Set the default Ruby version
+chruby ruby-2.3.0
 
 # Git Completion & Repo State
 # http://neverstopbuilding.com/gitpro

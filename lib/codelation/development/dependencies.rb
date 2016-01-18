@@ -12,16 +12,20 @@ module Codelation
         sleep 3
         exec('ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"')
       end
+      run_command("brew update")
+      formulas = %w(bash chruby git heroku-toolbelt imagemagick node openssl ruby-install shellcheck v8 wget)
+      formulas.each do |formula|
+        brew_install(formula)
+      end
+    end
 
-      run_command("brew install bash")
-      run_command("brew install git")
-      run_command("brew install heroku")
-      run_command("brew install imagemagick")
-      run_command("brew install node")
-      run_command("brew install openssl")
-      run_command("brew install shellcheck")
-      run_command("brew install v8")
-      run_command("brew install wget")
+    def brew_install(formula)
+      run_command("brew unlink #{formula}") if outdated_formulas.include?("#{formula}\n")
+      run_command("brew install #{formula}")
+    end
+
+    def outdated_formulas
+      @outdated_formulas ||= `brew outdated`
     end
   end
 end
