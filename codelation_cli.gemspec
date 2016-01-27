@@ -16,6 +16,7 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
+  spec.add_dependency "activesupport", "~> 4.2"
   spec.add_dependency "open_uri_redirections", "~> 0.2"
   spec.add_dependency "progressbar", "~> 0.21"
   spec.add_dependency "rubyzip", "~> 1.1"
