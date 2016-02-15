@@ -25,17 +25,32 @@ module Codelation
 
       # Adds a remote if wanted
       return if no?("Link to GitHub Repo? [y/N] ")
+      repo_url = ""
+      loop do
+        repo_url = ask("Enter Repo URL: ")
+        return if repo_url == "Q"
+        break if repo_url =~ %r{((http([s]{0,1}):\/\/github.com\/)|(git@github\.com:))(.*)\/(.*)\.git}
+        puts "Invalid Url or SSH path. Retry or Q to not link with a Git repository"
+      end
 
-      repo_url = ask("Enter Repo URL: ")
+      # Link heroku button to github path
+      rewrite(app_name, "README.md", /(?<=template=).*(?=\))/, repo_url.chomp(".git"))
+
       Dir.chdir(app_name) do
         puts "Initalizing Repository..."
         `git init`
         puts "Adding Remote..."
         `git remote add origin #{repo_url}`
-      end
+        puts "Installing Dependencies..."
+        `bundle install`
+        puts "Committing changes..."
+        `git add .`
+        `git commit -m "Initial commit"`
 
-      # Link heroku button to github path
-      rewrite(app_name, "README.md", /(?<=template=).*(?=\))/, repo_url.chomp(".git"))
+        return if no?("Setup database? [y/N] ")
+        puts "Working..."
+        `rake db:setup`
+      end
     end
 
     def file_rewrites(app_name)
@@ -72,13 +87,9 @@ module Codelation
       rewrite(app_name, config_init_sessionstore_file_name, /rails_project/, app_underscored_name)
     end
 
-    def rewrite(app_name, file_name, match, replace, gobal=false)
+    def rewrite(app_name, file_name, match, replace, global = false)
       original_text = File.read("./#{app_name}/#{file_name}")
-      if gobal
-        new_contents = original_text.gsub(match, "#{replace}")
-      else
-        new_contents = original_text.sub(match, "#{replace}")
-      end
+      new_contents = global ? original_text.gsub(match, replace) : original_text.sub(match, replace)
       File.open("./#{app_name}/#{file_name}", "w") {|file| file.puts new_contents }
     end
   end
