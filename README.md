@@ -16,6 +16,7 @@ $ codelation help
 Commands:
   codelation development:install  # Install the development tools used by Codelation
   codelation help [COMMAND]       # Describe available commands or one specific command
+  codelation rails:new            # Generate a new app using Codelation's Rails project template
   codelation update               # Update codelation-cli to latest version
   codelation version              # Show version information
 ```
