@@ -15,7 +15,8 @@ PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin
 PATH=./bin:$PATH
 
 # Include chruby for switching between Ruby versions
-source /usr/local/opt/chruby/share/chruby/chruby.sh
+source /usr/local/share/chruby/chruby.sh
+source /usr/local/share/chruby/auto.sh
 
 # Set the default Ruby version
 chruby ruby-2.3.0
