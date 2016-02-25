@@ -14,7 +14,7 @@ Style/Blocks:
 Style/RedundantSelf:
   Enabled: false
 
-Style/SingleSpaceBeforeFirstArg:
+Style/SpaceBeforeFirstArg:
   Enabled: false
 
 Style/SpaceInsideBlockBraces:
