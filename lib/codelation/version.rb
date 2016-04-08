@@ -1,9 +1,8 @@
-require "json"
 require "open-uri"
 require "thor"
 
 module Codelation
-  VERSION = "0.0.25".freeze
+  VERSION = "0.0.26".freeze
 
   class Cli < Thor
     desc "update", "Update codelation-cli to latest version"
