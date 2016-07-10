@@ -19,7 +19,7 @@ source /usr/local/share/chruby/chruby.sh
 source /usr/local/share/chruby/auto.sh
 
 # Set the default Ruby version
-chruby ruby-2.3.0
+chruby ruby-2.3.1
 
 # Git Completion & Repo State
 # http://neverstopbuilding.com/gitpro
