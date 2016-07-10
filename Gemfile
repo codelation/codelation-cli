@@ -1,4 +1,4 @@
 source "https://rubygems.org"
 
-# Specify your gem's dependencies in dokku_installer_cli.gemspec
+# Specify your gem's dependencies in codelation_cli.gemspec
 gemspec

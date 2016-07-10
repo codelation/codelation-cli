@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    codelation-cli (0.0.27)
+    codelation-cli (0.0.28)
       activesupport (~> 4.2)
       open_uri_redirections (~> 0.2)
       progressbar (~> 0.21)
@@ -37,4 +37,4 @@ DEPENDENCIES
   codelation-cli!
 
 BUNDLED WITH
-   1.11.2
+   1.12.5
