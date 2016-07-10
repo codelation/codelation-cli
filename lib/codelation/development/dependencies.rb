@@ -13,7 +13,7 @@ module Codelation
         exec('ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"')
       end
       run_command("brew update")
-      formulas = %w(bash chruby git heroku-toolbelt imagemagick node openssl ruby-install shellcheck v8 wget)
+      formulas = %w(bash chruby diff-so-fancy git heroku-toolbelt imagemagick node openssl ruby-install shellcheck v8 wget)
       formulas.each do |formula|
         brew_install(formula)
       end

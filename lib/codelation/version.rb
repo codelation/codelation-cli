@@ -3,7 +3,7 @@ require "thor"
 require "yajl"
 
 module Codelation
-  VERSION = "0.0.27".freeze
+  VERSION = "0.0.28".freeze
 
   class Cli < Thor
     desc "update", "Update codelation-cli to latest version"

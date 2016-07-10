@@ -22,6 +22,7 @@ module Codelation
       `ruby-install ruby #{RUBY_VERSION}`
 
       print_heading("Installing Ruby Gems")
+      `chruby #{RUBY_VERSION}`
       install_gems
     end
 

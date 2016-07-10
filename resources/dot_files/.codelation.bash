@@ -2,8 +2,12 @@
 alias desktop="cd ~/Desktop"
 alias downloads="cd ~/Downloads"
 alias fixopenwith="/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -kill -r -domain local -domain user"
+alias gdif="git diff --color | diff-so-fancy"
+alias gdiff="git diff --color | diff-so-fancy"
 alias gg="git status -s"
 alias gitclean='git branch --merged | grep -v "\*" | xargs -n 1 git branch -d'
+alias gitdif="git diff --color | diff-so-fancy"
+alias gitdiff="git diff --color | diff-so-fancy"
 alias ll="ls -lah"
 alias railsclean="RAILS_ENV=development rake assets:clean; RAILS_ENV=development rake tmp:clear; RAILS_ENV=test rake assets:clean; RAILS_ENV=test rake tmp:clear"
 alias ss="bundle exec rake start"
