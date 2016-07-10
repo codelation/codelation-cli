@@ -21,4 +21,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency "progressbar", "~> 0.21"
   spec.add_dependency "rubyzip", "~> 1.1"
   spec.add_dependency "thor", "~> 0.19"
+  spec.add_dependency "yajl-ruby", "~> 1.2"
 end

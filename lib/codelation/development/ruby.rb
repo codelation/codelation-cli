@@ -3,9 +3,7 @@ require "thor"
 
 module Codelation
   class Cli < Thor
-    RUBY_INSTALL_VERSION = "0.6.0".freeze
-    RUBY_INSTALL_URL = "https://github.com/postmodern/ruby-install/archive/v#{RUBY_INSTALL_VERSION}.tar.gz".freeze
-    RUBY_VERSION = "2.3.0".freeze
+    RUBY_VERSION = "2.3.1".freeze
 
   private
 

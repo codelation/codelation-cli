@@ -1,9 +1,9 @@
-require "json"
 require "open-uri"
 require "thor"
+require "yajl"
 
 module Codelation
-  VERSION = "0.0.25".freeze
+  VERSION = "0.0.27".freeze
 
   class Cli < Thor
     desc "update", "Update codelation-cli to latest version"
@@ -19,7 +19,7 @@ module Codelation
 
       # Grab the latest version of the RubyGem
       rubygems_json = open("https://rubygems.org/api/v1/gems/codelation-cli.json").read
-      rubygems_version = "v#{JSON.parse(rubygems_json)['version'].strip}"
+      rubygems_version = "v#{Yajl::Parser.parse(rubygems_json)['version'].strip}"
 
       upgrade_message = ""
       if gem_version != rubygems_version
