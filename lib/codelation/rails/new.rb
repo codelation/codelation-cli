@@ -36,6 +36,8 @@ module Codelation
 
         print_command("Installing dependencies")
         run_command("bundle install")
+        run_command("npm install")
+        run_command("node_modules/.bin/bower install")
 
         return if no?("-----> Setup database? [y/N]")
         run_command("rake db:setup")
