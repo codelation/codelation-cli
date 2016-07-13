@@ -66,6 +66,8 @@ module Codelation
         "config/application.rb",
         "config/database.yml",
         "config/routes.rb",
+        "bower.json",
+        "package.json",
         "README.md"
       ]
     end
