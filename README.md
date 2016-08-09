@@ -34,6 +34,13 @@ Flags:
 
 ## Development
 
+Install [Crystal](https://crystal-lang.org) via [Homebrew](http://brew.sh):
+
+```
+brew update
+brew install crystal-lang
+```
+
 Examples of how to run commands in development:
 
 ```
