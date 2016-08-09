@@ -1,0 +1,14 @@
+version: 1.0
+shards:
+  commander:
+    github: mrrooijen/commander
+    version: 0.3.3
+
+  inflector:
+    github: phoffer/inflector.cr
+    version: 0.1.7
+
+  progress:
+    github: askn/progress
+    commit: 289b1b89dead01830c20abed24e459054c3220b4
+

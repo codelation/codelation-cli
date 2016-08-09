@@ -1,0 +1,17 @@
+name: codelation
+version: 0.1.0
+
+authors:
+  - Brian Pattison <brian@brianpattison.com>
+
+license: MIT
+
+dependencies:
+  commander:
+    github: mrrooijen/commander
+    version: ~> 0.3.3
+  inflector:
+    github: phoffer/inflector.cr
+    version: "~> 0.1.7"
+  progress:
+    github: askn/progress

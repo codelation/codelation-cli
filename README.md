@@ -4,21 +4,42 @@ Command line tool for Codelation tasks.
 
 ## Installation
 
-```bash
-$ gem install codelation-cli
+Install via [Homebrew](http://brew.sh):
+
+```
+brew install codelation/tools/codelation-cli
 ```
 
 ## Usage
 
 ```
-$ codelation help
+codelation --help
+```
+
+```
+codelation - The Command Line Interface for Codelation's Development Tasks
+
+Usage:
+  codelation [command] [flags] [arguments]
 
 Commands:
-  codelation development:install  # Install the development tools used by Codelation
-  codelation help [COMMAND]       # Describe available commands or one specific command
-  codelation rails:new            # Generate a new app using Codelation's Rails project template
-  codelation update               # Update codelation-cli to latest version
-  codelation version              # Show version information
+  development:install  # Install the development tools used by Codelation
+  help [command]       # Help about any command.
+  rails:new            # Generate a new app using Codelation's Rails project template
+
+Flags:
+  -h, --help     # Help for this command. default: 'false'.
+  -v, --version  # Print the version. default: 'false'.
+```
+
+## Development
+
+Examples of how to run commands in development:
+
+```
+crystal run src/codelation.cr -- [command] [flags] [arguments]
+crystal run src/codelation.cr -- help development:install
+crystal run src/codelation.cr -- rails:new
 ```
 
 ## Contributing
