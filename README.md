@@ -41,6 +41,13 @@ brew update
 brew install crystal-lang
 ```
 
+Install application dependencies:
+
+```
+cd cloned/project/path
+crystal deps
+```
+
 Examples of how to run commands in development:
 
 ```
