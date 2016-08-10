@@ -2,6 +2,7 @@ require "commander"
 require "./codelation/*"
 require "./codelation/development/*"
 require "./codelation/rails/*"
+require "./codelation/vue/*"
 
 cli = Commander::Command.new do |cmd|
   cmd.use = "codelation"
@@ -26,5 +27,6 @@ end
 
 Codelation::Development::Install.add(cli)
 Codelation::Rails::New.add(cli)
+Codelation::Vue::New.add(cli)
 
 Commander.run(cli, ARGV)

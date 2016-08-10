@@ -9,7 +9,7 @@ class Codelation::Vue::New
 
   def self.add(cli)
     cli.commands.add do |cmd|
-      cmd.use = "rails:new"
+      cmd.use = "vue:new"
       cmd.short = "Generate a new app using Codelation's Vue project template"
       cmd.long = <<-LONG
         Generates a new app using Codelation's Vue project template:

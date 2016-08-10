@@ -52,6 +52,9 @@ class Codelation::Development::Install
     Print.print_heading("Installing Ruby Gems")
     Ruby.install_gems
 
+    Print.print_heading("Add Ruby Bin Path to Atom Init Script")
+    Ruby.add_path_to_atom
+
     Print.print_heading("Installing Sequel Pro.app")
     SequelPro.install_sequel_pro
   end
