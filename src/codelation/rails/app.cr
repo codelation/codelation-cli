@@ -35,7 +35,7 @@ class Codelation::Rails::App
     Dir.cd(app_name) do
       Print.print_command("Initializing git repository")
       Run.run_command("git init")
-      Run.run_command("git remote add origin #{github_url}.git")
+      Run.run_command("git remote add origin #{github_url}.git") if github_url.includes?("://")
       Run.run_command("git add .")
       Run.run_command("git commit -m 'Initial commit'")
     end

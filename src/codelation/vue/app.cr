@@ -6,12 +6,7 @@ class Codelation::Vue::App
   include Codelation::Utils
 
   TEMPLATE_FILES = [
-    "config/initializers/active_admin.rb",
-    "config/initializers/session_store.rb",
-    "config/locales/en.yml",
-    "config/application.rb",
-    "config/database.yml",
-    "config/routes.rb",
+    "vue-app/index.html",
     "bower.json",
     "package.json",
     "README.md"
@@ -22,7 +17,7 @@ class Codelation::Vue::App
     Dir.cd(app_name) do
       Print.print_command("Initializing git repository")
       Run.run_command("git init")
-      Run.run_command("git remote add origin #{github_url}.git")
+      Run.run_command("git remote add origin #{github_url}.git") if github_url.includes?("://")
       Run.run_command("git add .")
       Run.run_command("git commit -m 'Initial commit'")
     end
@@ -49,10 +44,8 @@ class Codelation::Vue::App
       original_text = File.read(relative_path)
       File.open(relative_path, "w") do |file|
         file.puts original_text
-          .gsub("Rails Project Template", app_title)
-          .gsub("RailsProjectTemplate", app_class_name)
-          .gsub("rails_project_template", app_underscored_name)
-          .gsub("rails-project-template", app_name)
+          .gsub("Vue Project Template", app_title)
+          .gsub("vue-project-template", app_name)
       end
     end
   end
