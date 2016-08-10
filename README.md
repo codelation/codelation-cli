@@ -1,6 +1,6 @@
 # Codelation CLI
 
-Command line tool for Codelation tasks.
+Command line tool for Codelation development tasks.
 
 ## Installation
 
