@@ -81,7 +81,7 @@ tar -czf codelation-$(crystal run src/codelation.cr -- -v).tar.gz codelation
 shasum -a 256 codelation-$(crystal run src/codelation.cr -- -v).tar.gz
 ```
 
-#### 5. Update the Formula with the new SHA and URL
+#### 5. Update the Formula with the new SHA, URL, and version
 
 <https://github.com/codelation/homebrew-tools/blob/master/codelation-cli.rb>
 
