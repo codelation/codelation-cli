@@ -65,20 +65,20 @@ crystal run src/codelation.cr -- rails:new
 crystal build --release src/codelation.cr
 ```
 
-#### 2. Create the tar file (replace version number)
+#### 2. Create the tar file
 
 ```
-tar -czf codelation-0.3.1.tar.gz codelation
+tar -czf codelation-$(crystal run src/codelation.cr -- -v).tar.gz codelation
 ```
 
 #### 3. Create the release on GitHub and attach the tar file
 
 <https://github.com/codelation/codelation-cli/releases>
 
-#### 4. Generate the SHA-256 (replace version number)
+#### 4. Generate the SHA-256
 
 ```
-shasum -a 256 codelation-0.3.1.tar.gz
+shasum -a 256 codelation-$(crystal run src/codelation.cr -- -v).tar.gz
 ```
 
 #### 5. Update the Formula with the new SHA and URL
