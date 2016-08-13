@@ -25,12 +25,11 @@ source /usr/local/share/chruby/chruby.sh
 source /usr/local/share/chruby/auto.sh
 
 # Set the default Ruby version
-chruby ruby-2.3.1
+chruby ruby-#{Codelation::Development::Ruby::RUBY_VERSION}
 
 # Git Completion & Repo State
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-  . $(brew --prefix)/etc/bash_completion
-fi
+source `brew --prefix git`/etc/bash_completion.d/git-completion.bash
+source `brew --prefix git`/etc/bash_completion.d/git-prompt.sh
 
 MAGENTA="\\[\\033[0;35m\\]"
 YELLOW="\\[\\033[0;33m\\]"
