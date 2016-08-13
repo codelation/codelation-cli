@@ -4,7 +4,7 @@ require "../utils/*"
 class Codelation::Development::Ruby
   include Codelation::Utils
 
-  GEMS = %w(bundler rubocop scss_lint)
+  GEMS = %w(bundler cocoapods rubocop scss_lint)
 
   RUBY_VERSION = "2.3.1"
 

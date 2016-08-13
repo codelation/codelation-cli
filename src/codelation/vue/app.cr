@@ -23,11 +23,10 @@ class Codelation::Vue::App
     end
   end
 
-  # Install Ruby, Node, and Bower dependencies
+  # Install Node and Bower dependencies
   def self.install_dependencies(app_name : String)
     Dir.cd(app_name) do
       Print.print_command("Installing dependencies")
-      Run.run_command("bundle install")
       Run.run_command("npm install")
       Run.run_command("node_modules/.bin/bower install")
     end

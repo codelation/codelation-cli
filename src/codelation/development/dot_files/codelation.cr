@@ -15,7 +15,7 @@ alias railsclean="RAILS_ENV=development rake assets:clean; RAILS_ENV=development
 alias ss="bundle exec rake start"
 
 # Add Postgres commands from Postgres.app
-PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin
+PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
 
 # Add ./bin to make running Rails commands with Spring the default
 PATH=./bin:$PATH
