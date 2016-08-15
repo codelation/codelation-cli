@@ -32,11 +32,9 @@ class Codelation::Vue::App
     end
   end
 
-  # Replaces all versions of "Rails Project Template" with the app name equivalent.
+  # Replaces all versions of "Vue Project Template" with the app name equivalent.
   def self.replace_name(app_name : String)
     app_title = Inflector.titleize(app_name)
-    app_underscored_name = Inflector.underscore(app_name)
-    app_class_name = Inflector.camelize(app_underscored_name)
 
     TEMPLATE_FILES.each do |file_path|
       relative_path = File.join("./#{app_name}", file_path)

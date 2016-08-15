@@ -1,6 +1,7 @@
 require "commander"
 require "./codelation/*"
 require "./codelation/development/*"
+require "./codelation/ios/*"
 require "./codelation/rails/*"
 require "./codelation/vue/*"
 
@@ -26,6 +27,7 @@ cli = Commander::Command.new do |cmd|
 end
 
 Codelation::Development::Install.add(cli)
+Codelation::Ios::New.add(cli)
 Codelation::Rails::New.add(cli)
 Codelation::Vue::New.add(cli)
 
