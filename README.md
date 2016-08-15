@@ -25,6 +25,7 @@ Usage:
 Commands:
   development:install  # Install the development tools used by Codelation
   help [command]       # Help about any command.
+  ios:new              # Generate a new app using Codelation's iOS project template
   rails:new            # Generate a new app using Codelation's Rails project template
   vue:new              # Generate a new app using Codelation's Vue project template
 
