@@ -3,7 +3,7 @@ require "readline"
 require "./app"
 require "../utils/*"
 
-# Adds `ios:new` command to the codelation CLI.
+# Adds `ios:new` command to the Codelation CLI.
 class Codelation::Ios::New
   include Codelation::Utils
 

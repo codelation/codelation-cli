@@ -29,6 +29,7 @@ end
 Codelation::Development::Install.add(cli)
 Codelation::Ios::New.add(cli)
 Codelation::Rails::New.add(cli)
+Codelation::Setup.add(cli)
 Codelation::Vue::New.add(cli)
 
 Commander.run(cli, ARGV)

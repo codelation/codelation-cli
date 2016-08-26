@@ -3,7 +3,7 @@ require "readline"
 require "./app"
 require "../utils/*"
 
-# Adds `rails:new` command to the codelation CLI.
+# Adds `rails:new` command to the Codelation CLI.
 class Codelation::Rails::New
   include Codelation::Utils
 

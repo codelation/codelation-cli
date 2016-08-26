@@ -3,7 +3,7 @@ require "readline"
 require "./app"
 require "../utils/*"
 
-# Adds `vue:new` command to the codelation CLI.
+# Adds `vue:new` command to the Codelation CLI.
 class Codelation::Vue::New
   include Codelation::Utils
 

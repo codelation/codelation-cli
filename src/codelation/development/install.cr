@@ -3,7 +3,7 @@ require "./dependencies"
 require "./dot_files"
 require "../utils/*"
 
-# Adds `development:install` command to the codelation CLI.
+# Adds `development:install` command to the Codelation CLI.
 class Codelation::Development::Install
   include Codelation::Utils
 
