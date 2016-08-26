@@ -27,6 +27,8 @@ Commands:
   help [command]       # Help about any command.
   ios:new              # Generate a new app using Codelation's iOS project template
   rails:new            # Generate a new app using Codelation's Rails project template
+  setup                # Perform the setup tasks on any newly cloned Codelation project
+  upgrade              # Upgrades codelation-cli to the latest version
   vue:new              # Generate a new app using Codelation's Vue project template
 
 Flags:
