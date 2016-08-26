@@ -8,22 +8,35 @@ class Codelation::Setup
   def self.add(cli)
     cli.commands.add do |cmd|
       cmd.use = "setup"
-      cmd.short = "Install dependencies and setup the database in all types of Codelation projects"
+      cmd.short = "Perform the setup tasks on any newly cloned Codelation project"
+      cmd.long = <<-LONG
+        Installs dependencies and optionally sets up the database for any Codelation project.
+                  Project types include: Crystal, Electron, iOS, Phoenix, Rails, Vue
+        LONG
       cmd.run { run }
     end
   end
 
-  # Installs bower components. Also installs bower globally if not installed.
+  # Installs bower components. Also installs bower globally if not installed
   def self.bower_install
     return unless File.exists?("bower.json")
     bower = `which bower`
     `npm install bower -g` if bower == ""
     Run.run_command("bower install")
   end
+
   # Installs crystal dependencies
   def self.crystal_install
     return unless File.exists?("shard.yml")
     Run.run_command("crystal deps")
+  end
+
+  # Installs iOS dependencies. Also installs cocoapods gem if not installed
+  def self.ios_install
+    return unless File.exists?("Podfile")
+    pod = `which pod`
+    `gem install cocoapods` if pod == ""
+    Run.run_command("pod install")
   end
 
   # Installs npm packages
@@ -54,9 +67,10 @@ class Codelation::Setup
   end
 
   def self.run
-    Print.print_heading("Installing dependences")
+    Print.print_heading("Installing project dependences")
     bower_install
     crystal_install
+    ios_install
     npm_install
     phoenix_install
     rails_install
