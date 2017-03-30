@@ -17,11 +17,6 @@ class Codelation::Rails::App
     "README.md"
   ]
 
-  WEBPACK_FILES = [
-    "bower.json",
-    "package.json"
-  ]
-
   # Generate secret tokens for development and test environments
   def self.generate_secret_tokens(app_name : String)
     secrets_path = "./#{app_name}/config/secrets.yml"
@@ -45,19 +40,15 @@ class Codelation::Rails::App
   end
 
   # Install Ruby, Node, and Bower dependencies
-  def self.install_dependencies(app_name : String, webpack : Bool)
+  def self.install_dependencies(app_name : String)
     Dir.cd(app_name) do
       Print.print_command("Installing dependencies")
       Run.run_command("bundle install")
-      if webpack
-        Run.run_command("npm install")
-        Run.run_command("node_modules/.bin/bower install")
-      end
     end
   end
 
   # Replaces all versions of "Rails Project Template" with the app name equivalent.
-  def self.replace_name(app_name : String, webpack : Bool)
+  def self.replace_name(app_name : String)
     app_title = Inflector.titleize(app_name)
     app_underscored_name = Inflector.underscore(app_name)
     app_class_name = Inflector.camelize(app_underscored_name)
@@ -71,20 +62,6 @@ class Codelation::Rails::App
           .gsub("RailsProjectTemplate", app_class_name)
           .gsub("rails_project_template", app_underscored_name)
           .gsub("rails-project-template", app_name)
-      end
-    end
-
-    if webpack
-      WEBPACK_FILES.each do |file_path|
-        relative_path = File.join("./#{app_name}", file_path)
-        original_text = File.read(relative_path)
-        File.open(relative_path, "w") do |file|
-          file.puts original_text
-            .gsub("Rails Project Template", app_title)
-            .gsub("RailsProjectTemplate", app_class_name)
-            .gsub("rails_project_template", app_underscored_name)
-            .gsub("rails-project-template", app_name)
-        end
       end
     end
   end

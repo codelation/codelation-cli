@@ -29,26 +29,14 @@ class Codelation::Rails::New
     Print.print_command("Cloning the Rails project template")
     Run.run_command("git clone https://github.com/codelation/rails-project-template.git #{app_name}")
 
-    answer = Readline.readline("-----> Use Webpack (default: N)? [y/N] ").to_s.downcase
-    webpack = false
-    if answer == "y" || answer == "yes"
-      Print.print_command("Using webpack asset pipeline")
-      webpack = true
-    else
-      Print.print_command("Using generic rails asset pipeline")
-      Dir.cd(app_name) do
-        Run.run_command("git checkout rails-asset-pipeline")
-      end
-    end
-
     Print.print_command("Deleting the template's git history")
     FileUtils.rm_r("./#{app_name}/.git")
 
     Print.print_command("Configuring your application")
-    App.replace_name(app_name, webpack)
+    App.replace_name(app_name)
     App.generate_secret_tokens(app_name)
     App.initialize_git_repo(app_name, github_url)
-    App.install_dependencies(app_name, webpack)
+    App.install_dependencies(app_name)
     App.set_up_database(app_name)
   end
 end
