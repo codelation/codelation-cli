@@ -2,7 +2,11 @@ defmodule DevelopmentSetup.Config.Atom do
   @atom_file Path.join([System.user_home, ".atom", "init.coffee"])
 
   def install(_force) do
-    File.touch(@atom_file)
+
+    if !File.exists?(@atom_file) do
+      File.write!(@atom_file, "") 
+    end
+
     {:ok, atom_contents} = File.read(@atom_file)
 
     atom_contents = String.replace(atom_contents, "\n# Add Ruby executables to Atom's PATH", "")

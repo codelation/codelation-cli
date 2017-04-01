@@ -53,7 +53,7 @@ defmodule DevelopmentSetup.Packages.Atom do
   defp install_package(package) do
     if !File.exists?(Path.join(System.user_home, ".atom/packages/#{package}")) do
       IO.puts "    Atom - Installing #{package}"
-      System.cmd("/Applications/Atom.app/Contents/Resources/app/apm/bin/apm", [package])
+      System.cmd("/Applications/Atom.app/Contents/Resources/app/apm/bin/apm", ["i", package])
     end
   end
 end
