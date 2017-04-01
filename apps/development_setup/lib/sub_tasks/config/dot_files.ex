@@ -8,8 +8,11 @@ defmodule DevelopmentSetup.Config.DotFiles do
     write_file(Path.join(bash_directory, ".rubocop.yml"), DevelopmentSetup.Config.ConfigFiles.Rubocop.content, force)
     write_file(Path.join(bash_directory, ".scss-lint.yml"), DevelopmentSetup.Config.ConfigFiles.ScssLint.content, force)
 
-    if !File.exists?(Path.join(home_directory, ".bash_profile")) do
-      File.write!(Path.join(home_directory, ".bash_profile"), "") 
+    bash_rc = if File.exists?(Path.join(home_directory, ".bash_profile")) do
+      {:ok, data} = File.read(Path.join(home_directory, ".bash_profile"))
+      data
+    else
+      ""
     end
 
     {:ok, bash_rc} = File.read(Path.join(home_directory, ".bash_profile"))
