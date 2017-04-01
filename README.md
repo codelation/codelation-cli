@@ -2,7 +2,7 @@
 
 ### Usage
 ```
-Codelation CLI V1.0.0
+Codelation CLI V2.0.0
 
 	Examples:
 		codelation --install all          Installs all packages
