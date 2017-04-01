@@ -33,20 +33,26 @@ This has 3 main projects in it.  `cli` is the project that the command line opti
 ### To Build
 Everything below is run from the `apps/cli` directory
 
-#####1. Install Dependencies
+**1. Install Dependencies**
+
 `mix escript.build`
 
-#####2. Rename the Executable
+**2. Rename the Executable**
+
 `mv cli codelation`
 
-#####3. Create the Tar file
+**3. Create the Tar file**
+
 `tar -czf codelation-1.0.0.tar.gz codelation`
 
-#####4. Create the release on GitHub and attach the tar file
+**4. Create the release on GitHub and attach the tar file**
+
 https://github.com/codelation/codelation-cli/releases
 
-#####5. Generate the SHA-256
+**5. Generate the SHA-256**
+
 `shasum -a 256 codelation-1.0.0.tar.gz`
 
-#####6. Update the Formula with the new SHA, URL, and version
+**6. Update the Formula with the new SHA, URL, and version**
+
 `https://github.com/codelation/homebrew-tools/blob/master/codelation-cli.rb`
