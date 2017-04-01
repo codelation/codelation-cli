@@ -43,7 +43,7 @@ Everything below is run from the `apps/cli` directory
 
 **3. Create the Tar file**
 
-`tar -czf codelation-1.0.0.tar.gz codelation`
+`tar -czf codelation-2.0.0.tar.gz codelation`
 
 **4. Create the release on GitHub and attach the tar file**
 
@@ -51,8 +51,8 @@ https://github.com/codelation/codelation-cli/releases
 
 **5. Generate the SHA-256**
 
-`shasum -a 256 codelation-1.0.0.tar.gz`
+`shasum -a 256 codelation-2.0.0.tar.gz`
 
 **6. Update the Formula with the new SHA, URL, and version**
 
-`https://github.com/codelation/homebrew-tools/blob/master/codelation-cli.rb`
+https://github.com/codelation/homebrew-tools/blob/master/codelation-cli.rb
