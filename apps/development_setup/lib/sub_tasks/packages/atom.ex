@@ -42,10 +42,7 @@ defmodule DevelopmentSetup.Packages.Atom do
       IO.puts "Installing Atom packages..."
 
       @packages
-      |> Enum.map(&Task.async(fn ->
-           install_package(&1)
-         end))
-      |> Enum.map(&Task.await(&1))
+      |> Enum.map(&install_package(&1))
 
       IO.puts "Done."
     else
