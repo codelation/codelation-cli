@@ -8,7 +8,6 @@ defmodule DevelopmentSetup.Packages.Atom do
     git-plus
     merge-conflicts
     minimap
-    html-entities
     language-elixir
     language-vue
     linter
