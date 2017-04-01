@@ -19,10 +19,10 @@ defmodule DevelopmentSetup.Packages.Brew do
 
   def install(force) do
     IO.puts "Installing Brew packages..."
-    aipt = Task.async(fn -> all_installed_packages() end, 100000)
-    aobpt = Task.async(fn -> all_outdated_brew_packages() end, 100000)
-    all = Task.await(aipt)
-    outdated = Task.await(aobpt)
+    aipt = Task.async(fn -> all_installed_packages() end)
+    aobpt = Task.async(fn -> all_outdated_brew_packages() end)
+    all = Task.await(aipt, 100000)
+    outdated = Task.await(aobpt, 100000)
 
     @formulas
     |> Enum.map(&install_package(&1, all, outdated, force))
