@@ -31,6 +31,22 @@ Codelation CLI V2.0.0
 This has 3 main projects in it.  `cli` is the project that the command line options are parsed.  It also is the where the executable is built.  `command_tools` provides simple APIs for doing things like unzipping a file and downloading a file.  `development_setup` is the project where all the development installation tasks exist.  
 
 ### To Build
+
+**1. Run Build Tool**
+
+Simply Run `./build.sh`.  This will spit out a compressed tar file and include the checksum in the output of that command.
+
+**2. Create the release on GitHub and attach the tar file**
+
+https://github.com/codelation/codelation-cli/releases
+
+**3. Update the Formula with the new SHA, URL, and version**
+
+The SHA and Version are all included in the output of the command.
+https://github.com/codelation/homebrew-tools/blob/master/codelation-cli.rb
+
+### Manually Build (Without the build tool)
+
 Everything below is run from the `apps/cli` directory
 
 **1. Install Dependencies**
