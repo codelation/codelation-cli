@@ -21,7 +21,8 @@ defmodule CommandTools.Installer.ZIP do
       prepare(package_name, url, force)
       IO.puts "Installing #{package_name}..."
       uninstall(Path.join(@application_dir, "#{package_name}.app"))
-      CommandTools.unzip(zip_file, @application_dir)
+      CommandTools.unzip(zip_file, @download_dir)
+      System.cmd("mv", [Path.join(@download_dir, "#{package_name}.app"), Path.join(@application_dir, "#{package_name}.app")])
       File.chmod!(Path.join([@application_dir, "#{package_name}.app", "Contents", "MacOS", package_name]), 755)
       IO.puts "Done."
     end

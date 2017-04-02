@@ -1,6 +1,6 @@
 defmodule DevelopmentSetup.Config.Atom do
 
-  def install(_force) do
+  def install(force) do
     atom_file = Path.join([System.user_home, ".atom", "init.coffee"])
     atom_contents = if File.exists?(atom_file) do
       {:ok, data} = File.read(atom_file)
