@@ -42,7 +42,7 @@ https://github.com/codelation/codelation-cli/releases
 
 **3. Update the Formula with the new SHA, URL, and version**
 
-The SHA and Version are all included in the output of the command.
+The SHA and Version are all included in the output of the command.  Add the data here: 
 https://github.com/codelation/homebrew-tools/blob/master/codelation-cli.rb
 
 ### Manually Build (Without the build tool)
