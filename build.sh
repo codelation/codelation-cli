@@ -9,6 +9,8 @@ VERSION=$(head lib/cli.ex | egrep -o "@cli_version.*" | egrep -o "(\d{1,3}\.\d{1
 echo
 echo -e "${PRIMARY_C}Building CLI Version ${SECONDARY_C}$VERSION"
 echo
+echo -e "${PRIMARY_C}Getting Dependencies"
+mix deps.get
 echo -e "${PRIMARY_C}Cleaning Project"
 mix clean
 echo -e "${PRIMARY_C}Building Project"
