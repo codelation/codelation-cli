@@ -1,5 +1,5 @@
 defmodule CLI do
-  @cli_version "2.0.1"
+  @cli_version "2.0.2"
 
   def main(args) do
     {ops, _text, _inval} = OptionParser.parse args, switches: [install: :string, force: :boolean, help: :boolean, version: :boolean], aliases: [i: :install, f: :force, h: :help, v: :version]

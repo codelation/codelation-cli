@@ -4,6 +4,7 @@ defmodule DevelopmentSetup.Packages.Brew do
     chruby
     diff-so-fancy
     elixir
+    heroku
     git
     imagemagick
     node

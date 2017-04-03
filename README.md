@@ -2,7 +2,7 @@
 
 ### Usage
 ```
-Codelation CLI V2.0.0
+Codelation CLI V2.0.2
 
 	Examples:
 		codelation --install all          Installs all packages
@@ -42,7 +42,7 @@ https://github.com/codelation/codelation-cli/releases
 
 **3. Update the Formula with the new SHA, URL, and version**
 
-The SHA and Version are all included in the output of the command.  Add the data here: 
+The SHA and Version are all included in the output of the command.  Add the data here:
 https://github.com/codelation/homebrew-tools/blob/master/codelation-cli.rb
 
 ### Manually Build (Without the build tool)
@@ -59,7 +59,7 @@ Everything below is run from the `apps/cli` directory
 
 **3. Create the Tar file**
 
-`tar -czf codelation-2.0.0.tar.gz codelation`
+`tar -czf codelation-2.0.2.tar.gz codelation`
 
 **4. Create the release on GitHub and attach the tar file**
 
@@ -67,7 +67,7 @@ https://github.com/codelation/codelation-cli/releases
 
 **5. Generate the SHA-256**
 
-`shasum -a 256 codelation-2.0.0.tar.gz`
+`shasum -a 256 codelation-2.0.2.tar.gz`
 
 **6. Update the Formula with the new SHA, URL, and version**
 

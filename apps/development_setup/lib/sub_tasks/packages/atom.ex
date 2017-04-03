@@ -1,8 +1,6 @@
 defmodule DevelopmentSetup.Packages.Atom do
   @packages ~w(
     atom-beautify
-    atom-elixir
-    autocomplete-elixir
     file-icons
     file-types
     git-plus
