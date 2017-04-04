@@ -1,36 +1,119 @@
 defmodule CLI do
   @cli_version "2.0.2"
 
+  @switches [
+    install: :string,
+    track: :boolean,
+    untrack: :boolean,
+    list: :boolean,
+    new: :boolean,
+    open: :string,
+    atom: :boolean,
+    force: :boolean,
+    help: :boolean,
+    version: :boolean
+  ]
+
+  @aliases [
+    i: :install,
+    t: :track,
+    n: :new,
+    o: :open,
+    l: :list,
+    u: :untrack,
+    a: :atom,
+    f: :force,
+    h: :help,
+    v: :version
+  ]
+
   def main(args) do
-    {ops, _text, _inval} = OptionParser.parse args, switches: [install: :string, force: :boolean, help: :boolean, version: :boolean], aliases: [i: :install, f: :force, h: :help, v: :version]
+    {ops, text, inval} = OptionParser.parse args, switches: @switches, aliases: @aliases
 
-    help_switch = ops[:help] || false
-    version_switch = ops[:version] || false
     force = ops[:force] || false
-    install = ops[:install] || false
 
-    terminate = false
-    if !terminate && help_switch do
-      help()
-      terminate = true
-    end
+    exec(ops, text, force)
 
-    if !terminate && version_switch do
-      IO.puts "Codelation CLI V#{@cli_version}"
-      terminate = true
-    end
+    #
+    #
 
-    if !terminate && install do
-      case DevelopmentSetup.run(install, force) do
-        :ok -> :ok
-        :not_found -> help("'#{install}' is not a valid option to the --install command.")
-      end
-      terminate = true
-    end
+    #
+    # terminate = false
+    # if !terminate && help_switch do
+    #   help()
+    #   terminate = true
+    # end
+    #
+    # if !terminate && version_switch do
+    #   IO.puts "Codelation CLI V#{@cli_version}"
+    #   terminate = true
+    # end
+    #
+    # if !terminate && install do
+    #   case DevelopmentSetup.run(install, force) do
+    #     :ok -> :ok
+    #     :not_found -> help("'#{install}' is not a valid option to the --install command.")
+    #   end
+    #   terminate = true
+    # end
+    #
+    # if !terminate do
+    #   help()
+    # end
+  end
 
-    if !terminate do
-      help()
+  defp exec([version: true], text, force) do
+    IO.puts "Codelation CLI V#{@cli_version}"
+  end
+
+  defp exec([help: true], text, force) do
+    help()
+  end
+
+  defp exec([new: true, untrack: true], text, force) do
+    ProjectManager.new(text, force, false)
+  end
+
+  defp exec([new: true], text, force) do
+    ProjectManager.new(text, force)
+  end
+
+  defp exec([list: true], _, _force) do
+    ProjectManager.list
+  end
+
+  defp exec([untrack: true], [], force) do
+    ProjectManager.untrack(force)
+  end
+
+  defp exec([untrack: true], text, force) do
+    ProjectManager.untrack(Enum.join(text, " "), force)
+  end
+
+  defp exec([track: true], [], force) do
+    ProjectManager.track(force)
+  end
+
+  defp exec([track: true], text, force) do
+    ProjectManager.track(Enum.join(text, " "), force)
+  end
+
+  defp exec([open: project], _text, _force) do
+    ProjectManager.open(project, false)
+  end
+  defp exec([open: project, atom: true], _text, _force) do
+    ProjectManager.open(project, true)
+  end
+
+  defp exec([install: cmd], _text, force) do
+    case DevelopmentSetup.run(cmd, force) do
+      :ok -> :ok
+      :not_found -> help("'#{cmd}' is not a valid option to the --install command.")
     end
+  end
+
+  defp exec(_, _text, _force) do
+    help()
   end
 
   defp help(banner \\ false) do
