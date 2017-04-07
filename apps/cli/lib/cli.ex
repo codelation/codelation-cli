@@ -1,5 +1,5 @@
 defmodule CLI do
-  @cli_version "2.0.2"
+  @cli_version "2.0.3"
 
   @switches [
     install: :string,
