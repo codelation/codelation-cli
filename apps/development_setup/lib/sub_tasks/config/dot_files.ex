@@ -15,8 +15,6 @@ defmodule DevelopmentSetup.Config.DotFiles do
       ""
     end
 
-    {:ok, bash_rc} = File.read(Path.join(home_directory, ".bash_profile"))
-
     if !String.contains?(bash_rc, "source ~/.codelation/bash/codelation.bash") do
       bash_rc = bash_rc <> "\nsource ~/.codelation/bash/codelation.bash"
       File.write!(Path.join(home_directory, ".bash_profile"), bash_rc)
