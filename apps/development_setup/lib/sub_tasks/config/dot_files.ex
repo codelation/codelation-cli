@@ -4,9 +4,9 @@ defmodule DevelopmentSetup.Config.DotFiles do
     bash_directory = Path.join([home_directory, ".codelation", "bash"])
 
     write_file(Path.join(bash_directory, "codelation.bash"), DevelopmentSetup.Config.ConfigFiles.Codelation.content, force)
-    write_file(Path.join(bash_directory, ".jshintrc"), DevelopmentSetup.Config.ConfigFiles.Jshintrc.content, force)
-    write_file(Path.join(bash_directory, ".rubocop.yml"), DevelopmentSetup.Config.ConfigFiles.Rubocop.content, force)
-    write_file(Path.join(bash_directory, ".scss-lint.yml"), DevelopmentSetup.Config.ConfigFiles.ScssLint.content, force)
+    write_file(Path.join(home_directory, ".jshintrc"), DevelopmentSetup.Config.ConfigFiles.Jshintrc.content, force)
+    write_file(Path.join(home_directory, ".rubocop.yml"), DevelopmentSetup.Config.ConfigFiles.Rubocop.content, force)
+    write_file(Path.join(home_directory, ".scss-lint.yml"), DevelopmentSetup.Config.ConfigFiles.ScssLint.content, force)
 
     bash_rc = if File.exists?(Path.join(home_directory, ".bash_profile")) do
       {:ok, data} = File.read(Path.join(home_directory, ".bash_profile"))

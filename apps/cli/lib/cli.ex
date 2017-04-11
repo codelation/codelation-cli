@@ -1,5 +1,5 @@
 defmodule CLI do
-  @cli_version "2.1.4"
+  @cli_version "2.1.5"
 
   @switches [
     force: :boolean,
