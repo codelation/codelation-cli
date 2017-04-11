@@ -10,7 +10,7 @@ defmodule DevelopmentSetup do
     DevelopmentSetup.Config.DotFiles
   ]
 
-  def run("atom", force) do
+  def run(["atom"], force) do
     DevelopmentSetup.Applications.Atom.install(force)
     if CommandTools.prompt?("Install Atom Packages?", force) do
       DevelopmentSetup.Packages.Atom.install(force)
@@ -22,42 +22,48 @@ defmodule DevelopmentSetup do
     :ok
   end
 
-  def run("atom-packages", force) do
+  def run(["atom-packages"], force) do
     DevelopmentSetup.Packages.Atom.install(force)
     :ok
   end
 
-  def run("atom-config", force) do
+  def run(["atom-config"], force) do
     DevelopmentSetup.Config.Atom.install(force)
     :ok
   end
 
-  def run("postgres", force) do
+  def run(["postgres"], force) do
     DevelopmentSetup.Applications.Postgres.install(force)
     :ok
   end
 
-  def run("brew", force) do
+  def run(["brew"], force) do
     DevelopmentSetup.Packages.Brew.install(force)
     :ok
   end
 
-  def run("ruby", force) do
+  def run(["ruby"], force) do
     DevelopmentSetup.Other.Ruby.install(force)
     :ok
   end
 
-  def run("gems", force) do
+  def run(["gems"], force) do
     DevelopmentSetup.Packages.Gem.install(force)
     :ok
   end
 
-  def run("config", force) do
+  def run(["config"], force) do
     DevelopmentSetup.Config.DotFiles.install(force)
     :ok
   end
 
-  def run("all", force) do
+  def run(["all"], force) do
+    @all_install
+    |> Enum.map(&install_item(&1, force))
+    :ok
+  end
+
+  def run([], force) do
     @all_install
     |> Enum.map(&install_item(&1, force))
     :ok

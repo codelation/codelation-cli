@@ -1,5 +1,5 @@
 defmodule CLI do
-  @cli_version "2.1.1"
+  @cli_version "2.1.2"
 
   @switches [
     force: :boolean,
@@ -116,7 +116,7 @@ defmodule CLI do
     IO.puts IO.ANSI.light_cyan<>"\t\tclone name                     #{IO.ANSI.cyan}Clones a project by name from Codelations Organization or by the url and tracks"
     IO.puts IO.ANSI.light_cyan<>"\t\tinstall/i cmd                    #{IO.ANSI.cyan}Used to install assets. 'cmd' can be any one of the following"
     IO.puts ""
-    IO.puts IO.ANSI.light_cyan<>"\t\t      all            #{IO.ANSI.cyan}- Everything is installed"
+    IO.puts IO.ANSI.light_cyan<>"\t\t      all            #{IO.ANSI.cyan}- Everything is installed/Same as empty"
     IO.puts IO.ANSI.light_cyan<>"\t\t      atom           #{IO.ANSI.cyan}- Atom is installed with prompts for packages and config"
     IO.puts IO.ANSI.light_cyan<>"\t\t      atom-packages  #{IO.ANSI.cyan}- Atom packages are installed"
     IO.puts IO.ANSI.light_cyan<>"\t\t      atom-config    #{IO.ANSI.cyan}- Atom config is installed"
