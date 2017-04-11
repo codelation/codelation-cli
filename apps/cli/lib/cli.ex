@@ -1,5 +1,5 @@
 defmodule CLI do
-  @cli_version "2.1.2"
+  @cli_version "2.1.3"
 
   @switches [
     force: :boolean,
@@ -83,6 +83,10 @@ defmodule CLI do
   end
   defp exec(_, ["clone", repo, out], _force) do
     ProjectManager.Commands.Clone.clone(repo, out)
+  end
+
+  defp exec(_, [], _force) do
+    help()
   end
 
   defp exec(_, text, _force) do
