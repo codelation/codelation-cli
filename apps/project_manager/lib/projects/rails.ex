@@ -21,26 +21,27 @@ defmodule ProjectManager.Projects.Rails do
 
   def new_project(name, force) do
     IO.puts "Generating New Rails Application"
-    name = String.replace(name, " ", "_")
+    raw_name = name
+    name = String.replace(name, " ", "_") |> String.downcase
     repo = if Github.has_repo?(name, false) && CommandTools.prompt?("Found GitHub repo at #{Github.url_for_name(name)}.  Would you like to set this as your origin?", force) do
       name
     else
-      if CommandTools.prompt?("Link project to a different GitHub url?", force) do
-        IO.gets "Enter a name or url: "
+      if CommandTools.prompt?("Link project to a GitHub url?", force) do
+        IO.gets IO.ANSI.yellow<>"Enter a name or url: "
         |> Github.name_from_remote
       end
     end
-    IO.puts "Cloning the Rails project template"
+    IO.puts IO.ANSI.cyan<>"Cloning the Rails project template"
     Github.clone(@rails_template, name)
-    IO.puts "Deleting the template's git history"
+    IO.puts IO.ANSI.cyan<>"Deleting the template's git history"
     File.rm_rf!("./#{name}/.git")
-    IO.puts "Configuring your application"
+    IO.puts IO.ANSI.cyan<>"Configuring your application"
     rename_app(name)
     regenerate_secret_tokens(name)
     initialize_git_repo(name, repo, force)
     set_up_database(name, force)
-    IO.puts "Done."
-    {:ok, repo || name, Path.join(System.cwd, name), name}
+    IO.puts IO.ANSI.green<>"Done."
+    {:ok, repo || name, Path.join(System.cwd, name), name, raw_name}
   end
 
   @doc """
@@ -65,7 +66,7 @@ defmodule ProjectManager.Projects.Rails do
         end
       end
     else
-      IO.puts "Didn't find git repo"
+      IO.puts IO.ANSI.red<>"Didn't find git repo"
     end
     if changed do
       File.cd ".."
