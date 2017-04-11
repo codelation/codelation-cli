@@ -31,15 +31,15 @@ defmodule ProjectManager.Manager.IO do
   end
 
   def write_projects(projects) do
-    CommandTools.write_file!(projects_file_name(), Poison.encode!(projects))
+    CommandTools.write_file!(projects_file_name(), Poison.encode!(projects, pretty: true))
   end
 
   def write_aliases(aliases) do
-    CommandTools.write_file!(aliases_file_name(), Poison.encode!(aliases))
+    CommandTools.write_file!(aliases_file_name(), Poison.encode!(aliases, pretty: true))
   end
 
   def write_atom(atoms) do
-    CommandTools.write_file!(atom_file_name(), Poison.encode!(atoms))
+    CommandTools.write_file!(atom_file_name(), Poison.encode!(atoms, pretty: true))
   end
 
   defp atom_file_name do
