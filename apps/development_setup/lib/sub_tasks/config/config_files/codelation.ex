@@ -2,6 +2,7 @@ defmodule DevelopmentSetup.Config.ConfigFiles.Codelation do
   def content do
     '
 # Aliases useful for Codelation development
+alias cli="codelation"
 alias desktop="cd ~/Desktop"
 alias downloads="cd ~/Downloads"
 alias fixopenwith="/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -kill -r -domain local -domain user"
