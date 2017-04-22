@@ -1,6 +1,7 @@
 defmodule DevelopmentSetup.Config.Atom do
 
   def install(force) do
+    IO.puts IO.ANSI.yellow<>"Installing Atom Config"
     atom_file = Path.join([System.user_home, ".atom", "init.coffee"])
     atom_contents = if File.exists?(atom_file) do
       {:ok, data} = File.read(atom_file)
@@ -24,6 +25,7 @@ defmodule DevelopmentSetup.Config.Atom do
     else
       CommandTools.write_file!(key_map_file_path, keymap_file())
     end
+    IO.puts IO.ANSI.green<>"Done."
   end
 
   defp keymap_file do

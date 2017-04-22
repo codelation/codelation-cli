@@ -5,7 +5,7 @@ defmodule CommandTools.Installer.DMG do
   def prepare(package_name, url, force) do
     dmg_image_name = Path.basename(url)
     dmg_image = Path.join(@download_dir, dmg_image_name)
-    IO.puts "Downloading #{package_name}..."
+    IO.puts IO.ANSI.white<>IO.ANSI.faint<>"Downloading #{package_name}..."<>IO.ANSI.normal
     dmg_image = Path.join(@download_dir, dmg_image_name)
     CommandTools.download!(url, dmg_image, force)
   end
@@ -24,11 +24,11 @@ defmodule CommandTools.Installer.DMG do
       {_, stat} = System.cmd("hdiutil",["attach", dmg_image])
       IO.puts ""
       if stat == 0 do
-        IO.puts "Installer mounted."
-        IO.puts "Please install #{package_name} via the installer."
-        IO.puts "Done."
+        IO.puts IO.ANSI.white<>IO.ANSI.faint<>"Installer mounted."<>IO.ANSI.normal
+        IO.puts IO.ANSI.magenta<>"Please install #{package_name} via the installer."
+        IO.puts IO.ANSI.green<>"Done."
       else
-        IO.puts "There was an issue mounting the installer.  Make sure it is not already mounted."
+        IO.puts IO.ANSI.red<>"There was an issue mounting the installer.  Make sure it is not already mounted."
       end
     end
   end

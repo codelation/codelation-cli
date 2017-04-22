@@ -2,29 +2,42 @@
 
 ### Usage
 ```
-Codelation CLI V2.0.2
+
+Codelation CLI V2.1.6
 
 	Examples:
-		codelation --install all          Installs all packages
-		codelation --install all -f       Installs all packages without prompting
-		codelation --install atom         Installs atom
+		codelation install all          Installs all packages
+		codelation install all -f       Installs all packages without prompting
+		codelation install atom         Installs atom
 
 	Commands:
-		--help/-h                         Shows this message
-		--version/-v                      Shows the version of this tool
-		--install/-i cmd                  Used to install assets. 'cmd' can be any one of the following
+		help/h                           Shows this message
+		version/-v                       Shows the version of this tool
+		new/n cmd                        Creates a new project.  cmd can be one of the folling
 
-		        all           - Everything is installed
-		        atom          - Atom is installed with prompts for packages and config
-		        atom-packages - Atom packages are installed
-		        atom-config   - Atom config is installed
-		        postgres      - Postgres is installed
-		        brew          - Brew packages are installed
-		        gems          - Gems are installed
-		        ruby          - Ruby is installed
-		        config        - The config dot files are installed
+		      rails [name]   - new rails project with the optional name
 
-		--force/-f                        Does not prompt the user (for silent installs)
+		track/t [name]                   Tracks the current directory for Atom Project Manager and cmd line quick actions
+		list/l                           Lists all tracked projects
+		untrack/u [name]                 Untracks the current directory or the given name
+		open/o name                      Opens a terminal to the project by tracked alias name
+		open with atom/oa name           Opens a terminal and atom to the project by tracked alias name
+		clone name                     Clones a project by name from Codelations Organization or by the url and tracks
+		install/i cmd                    Used to install assets. 'cmd' can be any one of the following
+
+		      all            - Everything is installed/Same as empty
+		      atom           - Atom is installed with prompts for packages and config
+		      atom-packages  - Atom packages are installed
+		      atom-config    - Atom config is installed
+		      postgres       - Postgres is installed
+		      brew           - Brew packages are installed
+		      gems           - Gems are installed
+		      ruby           - Ruby is installed
+		      config         - The config dot files are installed
+
+		--force/-f                       Does not prompt the user (for silent installs)
+
+
 ```
 
 ### In this project

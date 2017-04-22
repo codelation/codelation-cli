@@ -10,7 +10,9 @@ defmodule DevelopmentSetup.Other.Ruby do
   def install(_force) do
     {version, _} = System.cmd("ruby", ["-v"])
     if !String.contains?(version, ruby_version) do
+      IO.puts IO.ANSI.yellow<>"Installing Ruby Version "<>IO.ANSI.blue<>ruby_version
       System.cmd("ruby-install", ["ruby", ruby_version])
+      IO.puts IO.ANSI.green<>"Done."
     end
   end
 

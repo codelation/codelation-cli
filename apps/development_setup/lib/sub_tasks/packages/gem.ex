@@ -7,14 +7,14 @@ defmodule DevelopmentSetup.Packages.Gem do
   )
 
   def install(_force) do
-    IO.puts "Installing Gems..."
+    IO.puts IO.ANSI.yellow<>"Installing Gems"
     @gems
     |> Enum.map(&install_gem(&1))
-    IO.puts "Done."
+    IO.puts IO.ANSI.green<>"Done."
   end
 
   defp install_gem(gem) do
-    IO.puts "    Gem - Installing #{gem}"
+    IO.puts IO.ANSI.white<>IO.ANSI.faint<>"\tGem - Installing #{gem}"<>IO.ANSI.normal
     System.cmd(gem_path(), ["install", gem])
   end
 

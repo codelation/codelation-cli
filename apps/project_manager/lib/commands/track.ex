@@ -15,4 +15,7 @@ defmodule ProjectManager.Commands.Track do
   def untrack(name) do
     ProjectManager.Manager.UntrackAlias.untrack(name)
   end
+  def list do
+    ProjectManager.Manager.List.list()
+  end
 end

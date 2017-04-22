@@ -35,21 +35,20 @@ defmodule DevelopmentSetup.Packages.Atom do
   )
 
   def install(_force) do
+    IO.puts IO.ANSI.yellow<>"Installing Atom packages"
     if File.exists?("/Applications/Atom.app/Contents/Resources/app/apm/bin/apm") do
-      IO.puts "Installing Atom packages..."
-
       @packages
       |> Enum.map(&install_package(&1))
 
-      IO.puts "Done."
+      IO.puts IO.ANSI.green<>"Done."
     else
-      IO.puts "Couldn't find the Atom package manager"
+      IO.puts IO.ANSI.red<>"Couldn't find the Atom package manager"
     end
   end
 
   defp install_package(package) do
     if !File.exists?(Path.join(System.user_home, ".atom/packages/#{package}")) do
-      IO.puts "    Atom - Installing #{package}"
+      IO.puts IO.ANSI.white<>IO.ANSI.faint<>"\tAtom - Installing #{package}"<>IO.ANSI.normal
       System.cmd("/Applications/Atom.app/Contents/Resources/app/apm/bin/apm", ["i", package])
     end
   end

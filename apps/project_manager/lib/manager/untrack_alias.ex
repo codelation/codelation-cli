@@ -8,8 +8,8 @@ defmodule ProjectManager.Manager.UntrackAlias do
   end
   def untrack(name, aliases) do
     ProjectManager.Manager.IO.write_aliases(Map.delete(aliases, name))
-    if CommandTools.prompt?("Untrack in Atom Manager?", false) do
-      atoms = ProjectManager.Manager.IO.read_atom
+    atoms = ProjectManager.Manager.IO.read_atom
+    if ProjectManager.Manager.Checker.atoms_exists?(atoms, name) && CommandTools.prompt?("Untrack in Atom Manager?", false) do
       atoms = case find_atom_by_title(atoms, name, 0) do
         {:ok, idx} -> List.delete_at(atoms, idx)
         _else -> atoms
@@ -32,7 +32,7 @@ defmodule ProjectManager.Manager.UntrackAlias do
     end
   end
 
-  def find_atom_by_title([], _name), do: :error
+  def find_atom_by_title([], _name, _idx), do: :error
   def find_atom_by_title([%{"title" => title}|rest], name, idx) do
     if title == name do
       {:ok, idx}

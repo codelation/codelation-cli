@@ -1,5 +1,6 @@
 defmodule DevelopmentSetup.Config.DotFiles do
   def install(force) do
+    IO.puts IO.ANSI.yellow<>"Installing Additional Config Files"
     home_directory = System.user_home
     bash_directory = Path.join([home_directory, ".codelation", "bash"])
 
@@ -19,6 +20,7 @@ defmodule DevelopmentSetup.Config.DotFiles do
       bash_rc = bash_rc <> "\nsource ~/.codelation/bash/codelation.bash"
       File.write!(Path.join(home_directory, ".bash_profile"), bash_rc)
     end
+    IO.puts IO.ANSI.green<>"Done."
   end
 
   def write_file(file, content, force) do

@@ -50,15 +50,15 @@ defmodule ProjectManager.Github do
   end
 
   def clone(name) do
-    IO.puts IO.ANSI.faint
+    IO.puts IO.ANSI.white<>IO.ANSI.faint
     System.cmd("git", ["clone", url_for_name(name)])
-    IO.puts IO.ANSI.faint
+    IO.puts IO.ANSI.white<>IO.ANSI.normal
   end
 
   def clone(name, to) do
-    IO.puts IO.ANSI.faint
+    IO.puts IO.ANSI.white<>IO.ANSI.faint
     System.cmd("git", ["clone", url_for_name(name), to])
-    IO.puts IO.ANSI.faint
+    IO.puts IO.ANSI.white<>IO.ANSI.normal
   end
 
   def init do
@@ -71,7 +71,7 @@ defmodule ProjectManager.Github do
 
   def add_remote(url), do: add_remote("origin", url)
   def add_remote(remote_name, url) do
-    System.cmd("git", ["remote", "add", remote_name, url], [stderr_to_stdout: true])
+    System.cmd("git", ["remote", "add", String.replace(remote_name, "\n", ""), String.replace(url, "\n", "")], [stderr_to_stdout: true])
   end
 
   def commit(message \\ "CLI: Standard update") do

@@ -3,7 +3,7 @@ defmodule CommandTools.Installer.ZIP do
   @application_dir "/Applications"
 
   def prepare(package_name, url, force) do
-    IO.puts "Downloading #{package_name}..."
+    IO.puts IO.ANSI.white<>IO.ANSI.faint<>"Downloading #{package_name}..."<>IO.ANSI.normal
     zip_file = Path.join(@download_dir, "#{package_name}.zip")
     CommandTools.download!(url, zip_file, force)
   end
@@ -19,12 +19,12 @@ defmodule CommandTools.Installer.ZIP do
 
     if install? do
       prepare(package_name, url, force)
-      IO.puts "Installing #{package_name}..."
+      IO.puts IO.ANSI.white<>IO.ANSI.faint<>"Installing #{package_name}..."<>IO.ANSI.normal
       uninstall(Path.join(@application_dir, "#{package_name}.app"))
       CommandTools.unzip(zip_file, @download_dir)
       System.cmd("mv", [Path.join(@download_dir, "#{package_name}.app"), Path.join(@application_dir, "#{package_name}.app")])
       File.chmod!(Path.join([@application_dir, "#{package_name}.app", "Contents", "MacOS", package_name]), 755)
-      IO.puts "Done."
+      IO.puts IO.ANSI.green<>"Done."
     end
   end
 
